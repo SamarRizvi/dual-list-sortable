@@ -1,0 +1,56 @@
+<div class="col-md-36">
+    <div class="row text-center">
+        <label>{{nonSelectedListLabel}}</label>
+    </div>
+    <div class="row text-center">
+        <input type="text" placeholder="Search" id="{{sortableOptions.connectWith}}-filter-left-list" ng-change="scrollToElement(sortableOptions.connectWith, sortableOptions.placeholder, 'left-list')" ng-model="searchTextLeft" class="form-control"/>
+    </div>
+    <div class="row">
+        <div ui-sortable="uiSortableOptions" class="{{sortableOptions.connectWith}} list-group screen floatleft" ng-model="availableList">
+            <div ui-sortable-selectable selected-columns-index='{{leftSelected}}' selected-class-name="active" class="{{sortableOptions.placeholder}} list-group-item left-list" ng-repeat="selectedColumn in availableList">
+                <div class='col-md-70 hide-overflow'>
+                    <span ng-if="showField" title="{{selectedColumn[showField]}}" class='text-span'>{{selectedColumn[showField]}}</span>
+                    <span ng-if="!showField" title="{{selectedColumn}}" class='text-span'>{{selectedColumn}}</span>
+                </div>
+                <div class="col-md-10 no-padding">                    
+                    <button class="btn btn-default btn-xs right-move-button pull-right" ng-click="pushSelectedColumns(selectedColumn, availableList, selectedSortableModel, 'ltr')"><i class="fa fa-arrow-circle-right right-move-button"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-8 v-center">
+    <button type="button" ng-disabled="!selectedColumns[leftSelected].length" ng-click="pushSelectedColumns(selectedColumns[leftSelected], availableList, selectedSortableModel, 'ltr')" class="btn btn-default center-block btn-xs"><i class="fa fa-long-arrow-right"></i></button>
+    <button type="button" ng-disabled="!selectedColumns[rightSelected].length" ng-click="pushSelectedColumns(selectedColumns[rightSelected], selectedSortableModel, availableList, 'rtl')" class="btn btn-default center-block btn-xs"><i class="fa fa-long-arrow-left"></i></button>
+</div>
+<div class="col-md-36">
+    <div class="row text-center">
+        <label>{{selectedListLabel}}</label>
+    </div>
+    <div class="row text-center">
+        <input type="text" placeholder="Search" id="{{sortableOptions.connectWith}}-filter-right-list" ng-show="selectedSortableModel && selectedSortableModel.length" ng-change="scrollToElement(sortableOptions.connectWith, sortableOptions.placeholder, 'right-list')" ng-model="searchTextRight" class="form-control"/>
+    </div>
+
+    <div class="row">                                    
+        <div ui-sortable="uiSortableOptions" class="{{sortableOptions.connectWith}} list-group screen floatleft" ng-model="selectedSortableModel">
+            <div ui-sortable-selectable selected-columns-index='{{rightSelected}}' selected-class-name="active" class="{{sortableOptions.placeholder}} list-group-item right-list" ng-repeat="selectedColumn in selectedSortableModel">           
+
+                <div class="col-md-5 no-padding">
+                    <button class="btn btn-default btn-xs left-move-button pull-left" ng-click="pushSelectedColumns(selectedColumn, selectedSortableModel, availableList, 'rtl')"><i class="fa fa-arrow-circle-left left-move-button"></i></button>                                                                   
+                </div>
+
+                <div class='col-md-60 hide-overflow'>
+                    <span ng-if="showField" title="{{selectedColumn[showField]}}" class='text-span'>{{selectedColumn[showField]}}</span>
+                    <span ng-if="!showField" title="{{selectedColumn}}" class='text-span'>{{selectedColumn}}</span>
+                </div>
+
+                <div class="col-md-15 no-padding">
+                    <div class="pull-right">
+                        <button ng-if="$index > 0" class="btn btn-default btn-xs" ng-click="moveColumnUp($index, selectedSortableModel)"><i class="fa fa-arrow-circle-up"></i></button>
+                        <button ng-if="$index < selectedSortableModel.length - 1" class="btn btn-default btn-xs" ng-click="moveColumnDown($index, selectedSortableModel)"><i class="fa fa-arrow-circle-down"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
