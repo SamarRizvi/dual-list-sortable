@@ -1,0 +1,28 @@
+.dusl-list-sortable{
+    cursor: move;
+    height: 37px;
+    list-style-type: none;
+}
+.dusl-list-sortable-container{
+    height: 187px; 
+    overflow-y: scroll;
+    margin-top:10px;
+}
+.highlight {
+    background: yellow;
+    text-decoration: underline;
+}
+.hide-overflow {  
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
+}
+.text-span {
+    width: 100%;
+}
+.v-center {
+    min-height:300px;
+    display: flex;
+    justify-content:center;
+    flex-flow: column wrap;
+}
