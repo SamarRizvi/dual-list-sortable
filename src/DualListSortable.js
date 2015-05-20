@@ -326,19 +326,16 @@ app.directive('dualListSortable', function ($timeout, uiSortableMultiSelectionMe
         $scope.selectedSortableModel=[];
       }
       else
-      $scope.availableList = arrayUtils.subtract($scope.allSortableModel, $scope.selectedSortableModel);
+        $scope.availableList = arrayUtils.subtract($scope.allSortableModel, $scope.selectedSortableModel).unique();
 
       $scope.scrollToElement = function(elementParent, elementChild, listPosition) {
-        $("." + elementChild + "." + listPosition).parent().scrollTop(0);
-        if ($("." + elementChild + "." + listPosition + ":containsIgnoreCase('" + $('#' + elementParent + '-filter-' + listPosition).val() + "'):eq(0)").offset()) {
           $("." + elementChild + "." + listPosition).highlightRegex();
           var regex = new RegExp($('#' + elementParent + '-filter-' + listPosition).val(), 'ig');
           if (typeof regex !== 'undefined') {             
              if ($('#' + elementParent + '-filter-' + listPosition).val() != '')
                $("." + elementChild + "." + listPosition).highlightRegex(regex);
            }
-          $("." + elementChild + "." + listPosition).parent().scrollTop($("." + elementChild + "." + listPosition + ":containsIgnoreCase('" + $('#' + elementParent + '-filter-' + listPosition).val() + "'):eq(0)").offset().top - $("." + elementChild + "." + listPosition).parent().height());
-        }
+        $("." + elementChild + "." + listPosition).find('.highlight')[0].scrollIntoView();
       };
       
       $scope.pushSelectedColumns = function (selectedColumns, allColumnsLeft, allColumnsRight, direction) {
