@@ -290,7 +290,7 @@
  * @author Samar Rizvi
  * @since 2015.03.27.17.55.50
  */
-app.directive('dualListSortable', function ($timeout, uiSortableMultiSelectionMethods, arrayUtils) {
+.directive('dualListSortable', function ($timeout, uiSortableMultiSelectionMethods, arrayUtils) {
   return {
     restrict: 'E',
     transclude: false,
