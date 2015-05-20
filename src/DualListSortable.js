@@ -5,7 +5,8 @@
  * https://github.com/thgreasi/ui-sortable-multiselection
  * Angularui sortable multisort directive
  */
- angular.module('ui.sortable.dual.list', []).directive('uiSortableSelectable', 
+ angular.module('ui.sortable.dual.list', [])
+ .directive('uiSortableSelectable', 
   function () {
     return {
       link: function (scope, element, attrs) {
