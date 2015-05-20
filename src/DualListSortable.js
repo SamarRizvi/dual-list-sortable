@@ -1,6 +1,6 @@
 "use strict";
 
-var app = angular.module('app');
+var app = angular.module('ui.sortable.dual.list', []);
 /*
  * Thanks to 'thgreasi' for providing multi sort in ui-sortable
  * https://github.com/thgreasi/ui-sortable-multiselection
