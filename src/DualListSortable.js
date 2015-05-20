@@ -420,6 +420,6 @@ app.directive('dualListSortable', function ($timeout, uiSortableMultiSelectionMe
       scope.leftSelected = "left_" + scope.sortableOptions.connectWith + "_" + scope.sortableOptions.placeholder;
       scope.rightSelected = "right_" + scope.sortableOptions.connectWith + "_" + scope.sortableOptions.placeholder;
     },
-    templateUrl: "App/Views/DualListTemplate.html"
+    templateUrl: "DualListTemplate.html"
   };
 });
