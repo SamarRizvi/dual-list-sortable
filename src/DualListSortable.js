@@ -1,12 +1,11 @@
 "use strict";
 
-var app = angular.module('ui.sortable.dual.list', []);
 /*
  * Thanks to 'thgreasi' for providing multi sort in ui-sortable
  * https://github.com/thgreasi/ui-sortable-multiselection
  * Angularui sortable multisort directive
  */
-app.directive('uiSortableSelectable', 
+ angular.module('ui.sortable.dual.list', []).directive('uiSortableSelectable', 
   function () {
     return {
       link: function (scope, element, attrs) {
